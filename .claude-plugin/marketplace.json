@@ -1,0 +1,15 @@
+{
+	"name": "ubersuggest",
+	"description": "Official Ubersuggest plugins for Claude Code — live SEO data and SEO know-how from the Ubersuggest MCP server.",
+	"owner": {
+		"name": "Ubersuggest",
+		"url": "https://neilpatel.com"
+	},
+	"plugins": [
+		{
+			"name": "ubersuggest",
+			"source": "./plugins/ubersuggest",
+			"description": "SEO assistant powered by Ubersuggest: keyword research, competitor analysis, site audits, backlinks and AI search visibility."
+		}
+	]
+}
