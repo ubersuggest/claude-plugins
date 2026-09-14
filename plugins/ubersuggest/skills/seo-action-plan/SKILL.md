@@ -17,14 +17,37 @@ Website: `$ARGUMENTS` (if empty, ask for the domain — nothing else is required
 Someone gave you a website and does not know what to ask for. Your job is to
 look at it and **decide**, then do the first thing for them.
 
-## The rule that defines this skill
+## The two rules that define this skill
 
 **Never end with a menu.** "You could do a site audit, or keyword research, or
 look at competitors" is the failure this skill exists to prevent. Pick the one
 thing that matters most for this site, say why in a sentence a non-marketer
-understands, and offer to run it now.
+understands, and offer to run it now. Three next steps maximum, ranked, one
+marked as the one to do first.
 
-Three next steps maximum, ranked, with one marked as the one to do first.
+**Teach how SEO helps a business, in plain language, for someone with zero SEO
+knowledge — this is not a sales surface.** Taken from the in-app User Guide
+(UBS-1004), and it governs tone here too: explain, don't pitch. Mention the
+Ubersuggest app only where it is genuinely the next step, never as an upsell.
+
+## Speak the same language as the app
+
+Ubersuggest's own guided tour teaches six outcomes in this order. Use these
+words, so someone who runs this skill and then opens the app recognises where
+they are:
+
+| Outcome | Plain meaning |
+| --- | --- |
+| **Analyze** | See the traffic your SEO already brings |
+| **Track** | See the keywords you rank for |
+| **Research** | Find new keywords to target |
+| **Write** | Turn keywords into new content |
+| **Fix** | Solve what's holding your site back |
+| **Keep the loop** | Work the list regularly — that's the whole job |
+
+The app sorts its Next Actions into three buckets — **Quick wins**,
+**Competitor gaps**, **SEO issues**. Sort your recommendation into the same
+three, for the same reason.
 
 ## Write for someone who does not know the words
 
@@ -32,10 +55,12 @@ The reader may not know what difficulty, intent, authority or a backlink is.
 Never make them look anything up.
 
 - Not "SD 42 with a DA of 18" → "this phrase is realistic for a site your size"
-- Not "you have thin content on commercial-intent pages" → "the pages that
-  could sell for you are too short to rank"
+- Not "thin content on commercial-intent pages" → "the pages that could sell
+  for you are too short to rank"
 - Not "improve internal linking" → "link to your service pages from your blog
   posts, so Google sees which pages matter"
+- "Organic" always gets its gloss the first time: visitors you earn from search
+  for free, with no ad spend.
 
 Numbers still come from tools and are never invented — but report them as
 meaning, not as metrics. One or two figures in the whole report, where they
@@ -43,52 +68,57 @@ change the decision.
 
 ## Steps
 
-1. **Check the account.** `auth_status`. It decides what you can run:
-   - **Logged in** → everything below, including the site crawl.
-   - **Not logged in** → skip the site-audit tools and say once, in one line,
-     that a free Ubersuggest account unlocks the crawl. Do not nag, and do not
-     stop — `pagespeed_audit` is not login-gated, so a technical read is still
-     possible.
+1. **Check the account.** `auth_status`, then `list_projects` if logged in.
 
-2. **Resolve the market.** If they named a country or city, `location_suggest`.
-   If not, do not interrogate them — infer from the domain's TLD and language
-   and state the assumption in one line.
+2. **If they already track this domain as a project, start there.**
+   `seo_opportunities` on that `project_id` returns the app's own Next Actions —
+   already personalised, already sorted into quick wins, competitor gaps and
+   SEO issues. Read it before doing your own diagnosis: it is cheaper than
+   rebuilding the same answer, and it means this skill and the app do not
+   contradict each other. Your job then is to **choose one** and explain why,
+   not to relay the list.
 
-3. **Diagnose, in this order.** Stop early once the binding constraint is
-   obvious; you do not need every tool.
+3. **Otherwise, diagnose it yourself.** Not logged in, or no project for this
+   domain. Stop as soon as the binding constraint is obvious — you do not need
+   every tool.
 
-   - `domain_overview` → does this site have any organic presence at all?
-     This single answer splits the whole decision tree.
-   - `domain_keywords`, sorted by position → **look for positions 4–20**. These
-     are pages Google already likes that nobody has finished. They are almost
-     always the highest-return first move, and the most persuasive thing you
-     can show someone who doubts SEO works.
-   - `domain_top_pages` → what already earns traffic, so the plan builds on it
-     instead of starting from zero.
-   - `competitors` (async — poll, cap at ~10) → who is winning instead of them.
+   - `domain_overview` → does this site have any organic presence at all? This
+     one answer splits the whole decision tree.
+   - `domain_keywords`, sorted by position → **look for positions 4–20**. Pages
+     Google already likes that nobody finished. Usually the highest-return
+     first move, and the most convincing thing to show someone who doubts SEO
+     works. This is the app's "quick wins" bucket.
+   - `domain_top_pages` → what already earns traffic, so the plan builds on it.
+   - `competitors` (async — poll, cap at ~10) → who wins instead of them. The
+     "competitor gaps" bucket.
    - `pagespeed_audit` → speed and Core Web Vitals. Works signed out.
-   - `site_audit` (logged in only) → the 3-step crawl contract in the
-     `site-audit` skill. Only start it when step 3's earlier signals suggest a
-     technical problem, because it is slow and spends a daily report.
+   - `site_audit` (logged in only) → the 3-step crawl in the `site-audit`
+     skill. Only when earlier signals point at a technical problem: it is slow
+     and spends a daily report. The "SEO issues" bucket.
 
-4. **Name the binding constraint.** Exactly one of these is the reason this
-   site is not getting traffic. Decide which:
+4. **Name the binding constraint.** Exactly one of these is the reason this site
+   is not getting traffic. Decide which.
 
-   | What you see | The real problem | What to do first |
-   | --- | --- | --- |
-   | Almost no keywords, few pages | Nothing to rank — no content yet | `content-demand-finder`, then `keyword-research` |
-   | Keywords sitting at 4–20 | Nearly winning, unfinished | `content-brief` on those pages |
-   | Ranks for its own brand only | Invisible for what it sells | `keyword-research` on the offer |
-   | Competitors rank, they don't | Losing a race they're already in | `competitor-analysis` |
-   | Traffic, but slow or broken site | Technical drag | `site-audit` |
-   | Good site, wrong topics | Writing what nobody searches | `content-demand-finder` |
+   | What you see | The real problem | Outcome | Do first |
+   | --- | --- | --- | --- |
+   | Keywords sitting at 4–20 | Nearly winning, unfinished | Write | `content-brief` on those pages |
+   | Almost no keywords, few pages | Nothing to rank — no content yet | Research | `content-demand-finder`, then `keyword-research` |
+   | Ranks for its own brand only | Invisible for what it sells | Research | `keyword-research` on the offer |
+   | Competitors rank, they don't | Losing a race they're already in | Research | `competitor-analysis` |
+   | Traffic, but slow or broken site | Technical drag | Fix | `site-audit` |
+   | Good site, wrong topics | Writing what nobody searches | Research | `content-demand-finder` |
 
    When two look true, pick the one that is cheapest to fix. Momentum matters
    more than completeness for someone who has never done this.
 
 5. **Do the first step, don't describe it.** Offer to run the chosen skill on
-   this domain right now, and run it on a yes. Handing back a plan they then
-   have to execute is the same menu problem in a different shape.
+   this domain now, and run it on a yes. Handing back a plan they then have to
+   execute is the same menu problem in a different shape.
+
+6. **Close the loop.** One line, at the end: this repeats. A site is never
+   "done" — you work the list, it refills. If they have no project yet,
+   `create_project` is what makes the app keep generating that list for them,
+   and that is the honest reason to mention it.
 
 ## Deliverable
 
@@ -96,8 +126,8 @@ Short. A page, not a report. Someone who does not work in marketing has to
 finish it.
 
 **Where you stand** — two or three sentences in plain language. Does this site
-get traffic from Google, roughly how much, and is that normal for its size? No
-table, no metric dump.
+earn visitors from Google, roughly how many, and is that normal for its size?
+No table, no metric dump.
 
 **The one thing holding you back** — a short paragraph naming the constraint
 from step 4 and the evidence for it. This is the core of the deliverable.
@@ -105,15 +135,15 @@ from step 4 and the evidence for it. This is the core of the deliverable.
 **Do this first** — the single recommended action, with:
 - what it is, in a sentence
 - why it beats the alternatives for *this* site
-- roughly how long it takes and whether it needs a writer, a developer, or
+- roughly how long it takes, and whether it needs a writer, a developer, or
   neither
 - what should change if it works, and roughly when
 
-**Then these two** — the second and third steps, one line each, explicitly
-marked as later, not now.
+**Then these two** — second and third steps, one line each, explicitly marked
+as later, not now.
 
 **What I checked** — one line naming the tools used, so the numbers are
-traceable and the user can see it was their actual site and not a template.
+traceable and the user can see this was their actual site, not a template.
 
 Close by offering to run the first step immediately.
 
@@ -121,6 +151,8 @@ Close by offering to run the first step immediately.
 
 - **Do not list everything wrong with the site.** A beginner handed 40 issues
   does nothing. The crawl may return hundreds; report the constraint.
+- **Do not relay `seo_opportunities` as a list.** The app already shows them a
+  list. The value you add is choosing.
 - **Do not recommend what they cannot do.** No "build backlinks" or "publish
   weekly for a year" to someone asking where to start. Prefer one action they
   can finish this week.
@@ -133,12 +165,12 @@ Close by offering to run the first step immediately.
 
 ## When something fails
 
-- **`domain_overview` returns nothing** → the domain may be new, misspelled, or
+- **`domain_overview` returns nothing** → the domain may be new, misspelled or
   too small to have data. Confirm the spelling, then treat "no data" as a
-  finding in itself: this is a site with no organic presence, which is the
-  first row of the table — say so plainly rather than reporting a failure.
+  finding: this is a site with no organic presence, which is a row in the
+  table. Say so plainly rather than reporting a failure.
 - **Quota error** → name which quota (daily reports reset daily, credits
-  monthly), stop calling, and deliver the plan from what you already gathered.
-  A decision from partial data still beats no decision.
+  monthly), stop calling, and deliver the plan from what you have. A decision
+  from partial data beats no decision.
 - **Not logged in and they want the crawl** → point at the free account once,
   and deliver the rest of the plan regardless.
