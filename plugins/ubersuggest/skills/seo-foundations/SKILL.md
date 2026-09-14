@@ -101,6 +101,7 @@ still working instead of looping forever.
 
 | User says | Start with |
 | --- | --- |
+| "here's my site, what do I do?" — anything vague, or anyone who does not know the terminology | the `seo-action-plan` skill: it diagnoses and picks the next step instead of offering a menu |
 | "find me good keywords" | the `keyword-research` skill |
 | "why does my competitor outrank me" | the `competitor-analysis` skill |
 | "is my site technically broken / slow" | the `site-audit` skill |

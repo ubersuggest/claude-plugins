@@ -24,6 +24,10 @@ in with your own Ubersuggest account over OAuth on the first tool call — no AP
 key to paste and nothing to configure. Every tool works on a **free** account;
 your plan changes how much data comes back, not which tools run.
 
+New to SEO and unsure what to ask for? `/ubersuggest:seo-action-plan <your
+site>` looks at the site and tells you the single next thing to do, in plain
+language, instead of handing you a list of options.
+
 One skill needs no account and makes no data calls at all:
 `/ubersuggest:content-demand-finder`, which turns a business description into 50
 content opportunities.

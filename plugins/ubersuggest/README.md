@@ -21,9 +21,12 @@ API key to paste. Check the connection any time with `/mcp`.
 Skills are namespaced as `/ubersuggest:<skill>`; the short form (`/site-audit`)
 also works when no other installed skill claims that name. You can equally just
 describe what you want in plain language — Claude picks the right workflow.
+If you don't know which of these you need, run `/ubersuggest:seo-action-plan`
+with your domain and it will decide for you.
 
 | Command | What it does | Needs login |
 | --- | --- | --- |
+| `/ubersuggest:seo-action-plan <website>` | **Start here.** Diagnoses your site and tells you the one thing to do next, in plain language | no (more with login) |
 | `/ubersuggest:keyword-research <topic> [location]` | Prioritised keyword list with volume, difficulty, intent, grouped into clusters | no |
 | `/ubersuggest:competitor-analysis <domain>` | Domain comparison plus keyword and content gaps vs. competitors | no |
 | `/ubersuggest:site-audit <domain>` | Technical crawl, prioritised fixes, Core Web Vitals | **yes** |
