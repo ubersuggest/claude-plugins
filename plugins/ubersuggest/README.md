@@ -1,7 +1,7 @@
 # Ubersuggest SEO — Claude Code plugin
 
 Turns Claude into an SEO consultant backed by real Ubersuggest data. Installing
-the plugin connects the Ubersuggest MCP server (46 tools) and adds the SEO
+the plugin connects the Ubersuggest MCP server (58 tools) and adds the SEO
 know-how to use it — so you can ask "why is my competitor outranking me?"
 instead of picking tools by hand.
 
@@ -27,6 +27,7 @@ with your domain and it will decide for you.
 | Command | What it does | Needs login |
 | --- | --- | --- |
 | `/ubersuggest:seo-action-plan <website>` | **Start here.** Diagnoses your site and tells you the one thing to do next, in plain language | no (more with login) |
+| `/ubersuggest:project-setup <website>` | Sets a site up from scratch: project, business summary, competitors, AI-answer topics and prompts, tracked keywords | **yes** |
 | `/ubersuggest:keyword-research <topic> [location]` | Prioritised keyword list with volume, difficulty, intent, grouped into clusters | no |
 | `/ubersuggest:competitor-analysis <domain>` | Domain comparison plus keyword and content gaps vs. competitors | no |
 | `/ubersuggest:site-audit <domain>` | Technical crawl, prioritised fixes, Core Web Vitals | **yes** |
