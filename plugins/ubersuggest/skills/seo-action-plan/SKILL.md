@@ -116,9 +116,9 @@ change the decision.
    execute is the same menu problem in a different shape.
 
 6. **Close the loop.** One line, at the end: this repeats. A site is never
-   "done" — you work the list, it refills. If they have no project yet,
-   `create_project` is what makes the app keep generating that list for them,
-   and that is the honest reason to mention it.
+   "done" — you work the list, it refills. If they have no project yet, the
+   **project-setup** skill is what makes the app keep generating that list for
+   them, and that is the honest reason to mention it.
 
 ## Deliverable
 

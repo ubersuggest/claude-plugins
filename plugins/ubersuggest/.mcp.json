@@ -3,7 +3,7 @@
 		"ubersuggest": {
 			"type": "http",
 			"url": "https://ubersuggest-mcp.neilpatelapi.com/mcp",
-			"note": "Ubersuggest SEO MCP server (46 tools). Uses OAuth 2.0 with Dynamic Client Registration — on the first tool call Claude Code opens the browser to sign in with the user's Ubersuggest account. No API key to configure."
+			"note": "Ubersuggest SEO MCP server (58 tools). Uses OAuth 2.0 with Dynamic Client Registration — on the first tool call Claude Code opens the browser to sign in with the user's Ubersuggest account. No API key to configure."
 		}
 	}
 }

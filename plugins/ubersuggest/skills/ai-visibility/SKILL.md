@@ -20,9 +20,12 @@ AI Search Visibility configured. Call `auth_status` first.
 
 - Not logged in → explain that this data is tied to their Ubersuggest account
   and that any tool call opens the OAuth flow in the browser.
-- Logged in but no project → `create_project` sets one up, but AI visibility
-  tracking has to be configured in the Ubersuggest app before there is any data
-  to read. Say that rather than looping on empty results.
+- Logged in but no project → run the **project-setup** skill: it creates the
+  project and configures the AI visibility topics and prompts in one flow.
+- Project exists but no brand configured (`has_brand` is false, or `brand_config`
+  says no brand was found) → `configure_brand` sets the topics and prompts up.
+  Either way the first report takes about a day to populate, so say that rather
+  than looping on empty results.
 
 ## Steps
 
