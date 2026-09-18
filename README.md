@@ -4,12 +4,33 @@ A Claude Code plugin marketplace maintained by [Ubersuggest](https://neilpatel.c
 
 ## Install
 
+### Claude Code (recommended)
+
 ```
-/plugin marketplace add ubersuggest/claude-plugins
+/plugin marketplace add ubersuggest/seo-skills
 /plugin install ubersuggest
 ```
 
-Then restart Claude Code. Check the connection any time with `/mcp`.
+Then restart Claude Code. Check the connection any time with `/mcp`. This is the
+only install that also wires up the MCP server and the `seo-strategist` agent
+for you.
+
+### Any other agent
+
+Installs the skills into Cursor, Codex, Copilot, Zed, Warp and ~80 other agents:
+
+```
+npx skills add ubersuggest/seo-skills
+```
+
+This copies the skill files and nothing else. Seven of the eight skills read
+live data from the Ubersuggest MCP server, so add it too:
+
+```
+claude mcp add --transport http ubersuggest https://ubersuggest-mcp.neilpatelapi.com/mcp
+```
+
+`content-demand-finder` needs no account and no MCP server.
 
 ## Plugins
 

@@ -8,7 +8,7 @@ instead of picking tools by hand.
 ## Install
 
 ```
-/plugin marketplace add ubersuggest/claude-plugins
+/plugin marketplace add ubersuggest/seo-skills
 /plugin install ubersuggest
 ```
 
